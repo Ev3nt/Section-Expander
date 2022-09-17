@@ -91,14 +91,15 @@ BOOL main(int argc, LPCSTR argv[]) {
 		<< "----------------------------------------------------------------" << std::endl;
 
 	section = IMAGE_FIRST_SECTION(nt_header);
-	for (int i = 0; i < nt_header->FileHeader.NumberOfSections; i++, section++)
-		std::cout << section->Name << ":" << std::endl
-		<< "Virtual Address - " << (LPVOID)section->VirtualAddress << std::endl
-		<< "Virtual Size - " << section->Misc.VirtualSize << " = 0x" << (LPVOID)section->Misc.VirtualSize << std::endl
-		<< "Pointer to Raw Data - " << (LPVOID)section->PointerToRawData << std::endl
-		<< "Size of Raw Data - " << section->SizeOfRawData << " = 0x" << (LPVOID)section->SizeOfRawData << std::endl
-		<< "Characteristics - " << (LPVOID)section->Characteristics << std::endl
-		<< "----------------------------------------------------------------" << std::endl;
+	for (int i = 0; i < nt_header->FileHeader.NumberOfSections; i++, section++) {
+		std::cout	<< section->Name << ":" << std::endl
+					<< "Virtual Address - " << (LPVOID)section->VirtualAddress << std::endl
+					<< "Virtual Size - " << section->Misc.VirtualSize << " = 0x" << (LPVOID)section->Misc.VirtualSize << std::endl
+					<< "Pointer to Raw Data - " << (LPVOID)section->PointerToRawData << std::endl
+					<< "Size of Raw Data - " << section->SizeOfRawData << " = 0x" << (LPVOID)section->SizeOfRawData << std::endl
+					<< "Characteristics - " << (LPVOID)section->Characteristics << std::endl
+					<< "----------------------------------------------------------------" << std::endl;
+	}
 
 	system("pause");
 
